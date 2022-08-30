@@ -26,4 +26,8 @@ $ deactivate
 
 ```bash
 $ pip install <package-name>
+
+# or
+
+$ pip install -r requirements.txt
 ```
