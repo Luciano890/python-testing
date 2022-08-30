@@ -1,4 +1,4 @@
-# My python sand box
+# My python sandbox
 
 ## Introduction
 
