@@ -1,7 +1,7 @@
 """
 A simple FastAPI application.
 """
-from fastapi import FastAPI
+from fastapi import FastAPI # pylint: disable=import-error
 
 app = FastAPI()
 
