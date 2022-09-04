@@ -1,5 +1,5 @@
 """ db mongo connection  """
 # pylint: disable=import-error
-import motor.motor_asyncio
+import motor.motor_tornado
 
-client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://localhost:27017')
+client = motor.motor_tornado.MotorClient('mongodb://root:example@mongo:27017/')
