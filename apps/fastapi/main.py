@@ -2,8 +2,11 @@
 # pylint: disable=import-error
 import uvicorn
 from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 from routes.spartan import spartan, templates
+
 
 # FastAPI app
 app = FastAPI(
@@ -16,9 +19,13 @@ app = FastAPI(
     }]
 )
 
+# Static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Routes
 app.include_router(spartan, prefix="/spartans", tags=["spartan"])
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def main(request: Request):
     """ Main page """
     return templates.TemplateResponse("index.html", {"request": request})

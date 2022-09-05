@@ -1,4 +1,5 @@
 """ Spartan routes. """
+# pylint: disable=import-error
 from fastapi import (
     APIRouter,
     Depends,
