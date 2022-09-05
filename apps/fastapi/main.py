@@ -19,11 +19,12 @@ app = FastAPI(
     }]
 )
 
-# Static files
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
 # Routes
 app.include_router(spartan, prefix="/spartans", tags=["spartan"])
+
+# Static files
+app.mount("/static", StaticFiles(directory="./static"), name="static")
+
 
 @app.get("/", response_class=HTMLResponse)
 async def main(request: Request):
