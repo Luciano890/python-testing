@@ -13,9 +13,17 @@ class Team(int, Enum):
     BLACK = 3
     ORANGE = 4
 
-class Spartan(BaseModel):
-    """ Spartan model. """
-    uuid: typing.Optional[UUID] = Field(default_factory=uuid4)
+class BaseSpartan(BaseModel):
+    """ Base Spartan model. """
     name: str
     age: int
     team: typing.Optional[Team] = Team.BLUE
+
+
+class CreateSpartan(BaseSpartan):
+    """ Create Spartan model. """
+    uuid: UUID = Field(default_factory=uuid4)
+
+
+class UpdateSpartan(BaseSpartan):
+    """ Update Spartan model. """

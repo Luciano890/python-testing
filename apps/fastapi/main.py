@@ -5,7 +5,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
-from routes.spartan import spartan, templates
+from routes.spartan import spartan_router, templates
 
 
 # FastAPI app
@@ -20,7 +20,7 @@ app = FastAPI(
 )
 
 # Routes
-app.include_router(spartan, prefix="/spartans", tags=["spartan"])
+app.include_router(spartan_router, prefix="/spartans", tags=["spartan"])
 
 # Static files
 app.mount("/static", StaticFiles(directory="./static"), name="static")
