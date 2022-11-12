@@ -1,4 +1,4 @@
-FROM python:3.10.6
+FROM python
 
 WORKDIR /app
 
@@ -6,6 +6,6 @@ COPY . .
 
 RUN pip install --upgrade pip
 
-RUN pip install -r requirements.txt
+RUN pip install fastapi uvicorn["standard"] jinja2 tornado motor multipart
 
 CMD ["python", "main.py"]
